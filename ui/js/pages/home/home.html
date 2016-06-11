@@ -1,0 +1,70 @@
+<div>
+	<div class="page">
+		<div class="searchAndFilter">
+			<div>
+				<div>
+					<button ng-click="showOwned = 'all'" class="btn btn-sm btn-default" ng-class="{'btn-primary' : showOwned == 'all'}">All</button>
+					<button ng-click="showOwned = 'owned'" class="btn btn-sm btn-default" ng-class="{'btn-primary' : showOwned == 'owned'}">Owned</button>
+					<button ng-click="showOwned = 'unowned'" class="btn btn-sm btn-default" ng-class="{'btn-primary' : showOwned == 'unowned'}">Unowned</button>
+				</div>
+			</div>
+			<hr>
+			<div>
+				<div style="text-align: center; font-size: 12px; font-weight: bold;">
+					<select ng-model="set"
+							ng-options="set.name group by set.type for set in sets">
+					</select>
+					<!-- <pre>{{set | json}}</pre>
+					<div class="ss ss-{{set.code}} ss-common ss-2x" style="background: white; display: inline-block;"></div>
+					<input type="text" class="form-control" style="display: inline-block; width: 250px;"
+				 		ng-model="set" 
+				 		typeahead="s as s.name for s in sets" 
+				 		placeholder="Enter set" 
+			 		> -->
+
+				<!-- {{set.name}} ({{cards.length}}) --- {{set.releaseDate}} --></div>
+			</div>
+			<hr>
+			<div>
+				<div>
+					<button ng-repeat="color in colors | orderBy:'codes.length'" 
+							ng-click="$parent.selectedColor = color.key;" class="btn btn-sm btn-default" 
+							ng-class="{'btn-primary' : color.key == $parent.selectedColor}">
+							<img ng-repeat="code in color.codes" ng-src="./images/15px-{{code}}.svg.png"> ({{color.count}})
+							<span ng-show="color.codes.length == 0">
+								None
+							</span>
+							<!-- {{color.label}} -->
+					</button>
+				</div>
+		        <button ng-click="resetColors()"  class="btn btn-sm btn-default">Reset</button>
+		    </div>
+			<hr>
+
+			<div>
+				<div>
+					<button ng-repeat="r in rarity" ng-click="toggleRarity(r)" class="btn btn-sm btn-default" ng-class="{'btn-primary' : r.on}">{{r.label}}</button>
+				</div>
+		        <button ng-click="resetRarity()"  class="btn btn-sm btn-default">Reset</button>
+		    </div>
+			<hr>
+
+			<div>
+				<div>
+					<button ng-repeat="type in types" ng-click="toggleType(type)" class="btn btn-sm btn-default" ng-class="{'btn-primary' : type.on}">{{type.label}}</button>
+		        </div>
+		        <button ng-click="resetTypes()"  class="btn btn-sm btn-default">Reset</button>
+		    </div>
+			<hr>
+
+
+
+	    </div>
+		<div class="results">
+		    <div>
+				<input ng-model="searchText" placeholder="Card Name" id="cardNameSearch">
+		    </div>
+			<card-list cards="cards" search-string="searchText"></card-list>
+		</div>
+	</div>
+</div>

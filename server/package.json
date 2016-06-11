@@ -1,0 +1,12 @@
+{
+  "name": "Test",
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "express": "4.12.2",
+    "extend": "^2.0.1",
+    "mongojs": "*",
+    "mysql2": "*",
+    "q": "^1.3.0",
+    "socket.io": "1.3.5"
+  }
+}

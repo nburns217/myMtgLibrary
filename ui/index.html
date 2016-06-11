@@ -1,0 +1,116 @@
+<html>
+	<head style="padding: 0; margin: 0;">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>My MTG</title>
+
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+    	<link rel="stylesheet" href="css/keyrune.css" />
+
+	    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+		
+		<!-- <script language="javascript" src="node_modules/jquery/dist/jquery.min.js"></script> -->
+	    <!-- <script language="javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+	    <!-- <script language="javascript" src="thirdparty/angular-ui-bootstrap.js"></script> -->
+
+		<script language="javascript" src="node_modules/angular/angular.js"></script>
+		<script language="javascript" src="node_modules/angular-strap/dist/angular-strap.min.js"></script>
+		<script language="javascript" src="node_modules/angular-strap/dist/angular-strap.tpl.min.js"></script>
+		<!-- <script language="javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script language="javascript" src="node_modules/angular-cache-buster/angular-cache-buster.js"></script> -->
+
+		<style>
+		.mobile {
+			width: 100%;
+		}
+		</style>
+		<style>
+			.cardListContainer {
+				background-color: darkgrey;
+				height: 90%;
+				overflow: auto;
+			}
+			.cards {
+				vertical-align: top;
+				display: flex;
+				width: 100%;
+				overflow: hidden;
+				white-space: normal;
+				flex-wrap: wrap;
+				-webkit-border-radius: 6px;
+				        border-radius: 6px;
+			}
+			.card {
+				height: 350px;
+				width: 223px;
+				margin: 10px 10px;
+			}
+			.noImageCardName {
+				height: 310px;
+			}
+
+			.buttonContainer {
+				display: inline-block;
+				margin-left: 20px;
+				padding: 10px;	
+			}
+			.cardCountContainer {
+				display: flex; 
+				align-content: center;
+				flex-flow: row;
+			}
+			.cardCountItem {
+				flex: 1;
+			}
+
+			.cardList {
+				
+			}
+			.cardList .card {
+				height: 30px;
+				width: 90%;
+				display: flex;
+			}
+			.cardList .card .cardCountContainer {
+				flex: 1;
+			}
+			.cardList .card .name {
+				flex: 2;
+			}
+			.cardList .card .count {
+				flex: 1;
+			}
+
+			
+			.page {
+				display: flex;
+			}
+			.searchAndFilter {
+				width: 300px;
+			}
+			.results {
+				flex: 1;
+			}
+			.topNav {
+				color: red;
+				font-size: 24px;
+				font-weight: bold;
+			}
+			.topNav a {
+				color: red;
+			}
+		</style>
+		<script language="javascript" data-main="js/main"  src="node_modules/requirejs/require.js"></script>
+		<meta name = "viewport" content = "width = device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	</head>
+	<body style="padding: 10px; zoom:1; background-color: black;">
+		<div class="topNav">
+			<a href="#/home">Home</a> |
+			<a href="#/search">Search</a> |
+			<a href="#/progress">Progress</a>
+		</div>
+		<div ui-view>
+		</div>
+	</body>
+</html>

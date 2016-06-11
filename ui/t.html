@@ -1,0 +1,53 @@
+<html>
+	<head style="padding: 0; margin: 0;">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Eve Char</title>
+
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+	    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+		
+		<script language="javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+	    <script language="javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<!-- <script language="javascript" src="node_modules/angular/angular.js"></script>
+		<script language="javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script language="javascript" src="node_modules/angular-cache-buster/angular-cache-buster.js"></script> -->
+
+		<style>
+		.mobile {
+			width: 100%;
+		}
+		</style>
+		<!-- <script language="javascript" data-main="js/main"  src="node_modules/requirejs/require.js"></script> -->
+		<script language="javascript" src="js/xmlToJson.js"></script>
+		<meta name = "viewport" content = "width = device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+		<script>
+		var verificationCode = "0am20L1cruyIRsuCobJcWZg9ui9pzZzuk8InrZY09L2OByYpOxtkWonshzbemGJJ";
+		var keyId = "4932293";
+			var baseUrl = "https://api.eveonline.com/";
+
+			var endpoint = "char";
+			var action = "SkillList";
+
+			var url = baseUrl + endpoint + "/" + action + ".xml.aspx?keyID=" + keyId + "&vCode=" + verificationCode;
+
+			url = url + "&characterID=95763362";
+
+			// var url = "https://api.eveonline.com/corp/IndustryJobsHistory.xml.aspx?keyID={api_key_id_here}&vCode={api_verification_code_here}";
+
+			// var url = "https://api.eveonline.com/char/SkillList.xml.aspx?keyID=4628314&vCode=7TTdvHbtNVIkY2AXE6l3vD17Owe0ynFZRM33BuNkNwB725aTBRdIiBdRplji9J1E&characterID=95763362";
+
+			// var call = url.replace("{api_key_id_here}", keyId).replace("{api_verification_code_here}", verificationCode);
+			$.get(url, function(a,b,c){
+				debugger;
+			});
+		</script>
+	</head>
+	<body style="padding: 10px; zoom:1;">
+		<div ui-view>
+		</div>
+	</body>
+</html>

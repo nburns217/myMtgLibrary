@@ -1,0 +1,74 @@
+<div>
+	<style>
+		.sets {
+			vertical-align: top;
+			display: flex;
+			width: 100%;
+			overflow: hidden;
+			white-space: normal;
+			flex-wrap: wrap;
+			background-color: darkgrey;
+			-webkit-border-radius: 6px;
+			        border-radius: 6px;
+		}
+		.set {
+			width: 270px;
+			margin: 10px 10px;
+		}
+		.set i {
+			width: 100%;
+		}
+		.color {
+			display: flex;
+		}
+		.colorLabel {
+			width: 75px;
+		}
+		.colorProg {
+			flex: 1 0 0;
+		}
+		.colorProg .progress-bar {
+			text-align: left;
+			padding-left: 10px;
+			color: black;
+			font-weight: bold;
+		}
+	</style>
+	<div class="sets">
+		<div ng-repeat="set in sets | orderBy: '-own'" class="set" ng-init="percentComplete = set.own/set.total * 100; show = false; " ng-click="$parent.loadSetProgress(set); show = !show;">
+			<i class="ss ss-{{set.code}} ss-common"><div style="font-weight: bold;">{{set.name}}</div>
+			{{percentComplete | number: 2}}% - ({{set.own}} / {{set.total}})
+			<br>
+			<div class="progress">
+				<div class="progress-bar" aria-valuenow="{{set.own}}" aria-valuemin="0" aria-valuemax="{{set.total}}" 
+					style="width: {{percentComplete| number: 2}}%"
+					ng-class="{
+						'progress-bar-info' : percentComplete >= 100,
+						'progress-bar-success' : percentComplete >= 60,
+						'progress-bar-warning' : percentComplete < 60 && percentComplete >= 45 ,
+						'progress-bar-danger' : percentComplete < 45
+					}"
+				>
+				</div>
+			</div>
+			<div ng-repeat="c in set.colors" class="color" ng-show="show"> 
+				<div class="colorLabel">{{ ( (c.color == null) ? "No Color" : c.color)}}</div>
+				<div class="colorProg">
+					<div class="progress" ng-init="colorPercent = c.own/c.total * 100">
+						<div class="progress-bar" aria-valuenow="{{c.own}}" aria-valuemin="0" aria-valuemax="{{c.total}}" 
+							style="width: {{colorPercent| number: 2}}%"
+							ng-class="{
+								'progress-bar-info' : colorPercent >= 100,
+								'progress-bar-success' : colorPercent >= 60,
+								'progress-bar-warning' : colorPercent < 60 && colorPercent >= 45 ,
+								'progress-bar-danger' : colorPercent < 45
+							}"
+						>{{c.own}} / {{c.total}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

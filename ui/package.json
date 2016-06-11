@@ -1,0 +1,17 @@
+{
+  "name": "Test",
+  "dependencies": {
+        "bootstrap":            "3.x",
+        "angular":              "1.3.0-beta.10",
+        "angular-resource":     "*",
+        "angular-ui-router":    "*",
+        "angular-cache-buster" : "*",
+        "jquery":               "2.x",
+        "underscore":           "*",
+        "restangular":          "*",
+        "requirejs":            "*",
+        "requirejs-text":       "*",
+        "tether":               "*",
+        "angular-bootstrap":    "0.10.0"
+  }
+}

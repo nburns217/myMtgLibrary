@@ -1,0 +1,36 @@
+<div class="cardListContainer">
+	<div>
+		<div style="display: inline-block;">{{cards.length}}</div>
+		<div style="display: inline-block;">
+			<input type="radio" name="mode" ng-model="mode" value="list"><label>List</label>
+			<input type="radio" name="mode" ng-model="mode" value="tile"><label>Tile</label>
+		</div>
+	</div>
+
+	<div class="cardList" ng-if="mode == 'list'">
+		<div ng-repeat="card in cards | orderBy : 'name' | filter : {name: searchString} track by card.id " class="card" style="text-align: center;">
+			<div class="name">{{card.name}}</div>
+			<div class="count">{{card.count}}</div>
+			<div class="cardCountContainer">
+				<button ng-click="setCount(card, -1)" class="btn btn-sm btn-danger cardCountItem glyphicon glyphicon-minus"></button>
+				<button ng-click="setCount(card, 1)" class="btn btn-sm btn-success cardCountItem glyphicon glyphicon-plus"></button>
+			</div>
+		</div>
+	</div>
+	<div class="cards" ng-if="mode == 'tile'">
+		<div ng-repeat="card in cards | filter : {name: searchString} track by card.id " class="card" style="text-align: center;">
+			<div style="width: 100%; border: 1px solid red;" ng-if="$index % 9 == 0"></div>
+			<!-- <div class="name">{{card.name}}</div> -->
+			<div ng-if="!card.multiverseid" class="noImageCardName">
+				{{card.name}}<br>
+				{{card.set}}</div>
+			<img ng-if="card.multiverseid" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid={{card.multiverseid}}&type=card">
+			<div class="cardCountContainer">
+				<button ng-click="setCount(card, -1)" class="btn btn-sm btn-danger cardCountItem glyphicon glyphicon-minus"></button>
+				<input readonly="true" type="number" ng-model="card.count" class="cardCountItem" min="0" style="width: 50px;text-align: center;">
+				<button ng-click="setCount(card, 1)" class="btn btn-sm btn-success cardCountItem glyphicon glyphicon-plus"></button>
+			</div>
+		</div>
+	</div>
+</div>
+
